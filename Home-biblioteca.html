@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biblioteca SJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+    }
+
+    .navbar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #8a0303;
+      padding: 18px 32px;
+      height: 70px;
+      z-index: 1100;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .navbar-center-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      pointer-events: none;
+      white-space: nowrap;
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .navbar-center-text h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      white-space: nowrap;
+      font-family: "Times New Roman", serif;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      width: 38px;
+      height: 32px;
+      justify-content: space-between;
+      z-index: 1200;
+    }
+    .hamburger span {
+      background: #fff;
+      height: 4px;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .side-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      width: 50vw;
+      max-width: 300px;
+      height: 100vh;
+      background-color: #8a0303;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      z-index: 1100;
+    }
+
+    .menu-toggle:checked ~ .side-panel {
+      transform: translateX(0);
+    }
+
+    .menu-buttons button,
+    .bottom-button button {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: white;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .menu-buttons button:hover,
+    .bottom-button button:hover {
+      background-color: white;
+      color: #8a0303;
+    }
+
+    .bottom-button {
+      margin-top: auto;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1050;
+    }
+
+    .menu-toggle:checked ~ .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 400px) {
+      .side-panel {
+        width: 70vw;
+      }
+      .navbar-center-text {
+        width: auto;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+  <nav class="navbar">
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <div class="navbar-center-text">
+      <h1>Biblioteca Estudiantil</h1>
+    </div>
+
+    <div class="logo">
+      <img src="https://santajuanalestonnac.edu.co/wp-content/uploads/2020/03/escudo-512x512-1-300x300.png" alt="Logo" />
+    </div>
+  </nav>
+
+  <div class="side-panel">
+    <div class="menu-buttons">
+
+      <a href="Catalogo-biblioteca.html">
+      <button class="close-menu">Pedir Libro Prestado </button>
+    </a>
+    
+      <button class="close-menu">Devolver Libro </button>
+    </div>
+    <div class="bottom-button">
+      <button class="close-menu">Términos y Condiciones</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const buttons = document.querySelectorAll(".close-menu");
+    const overlay = document.getElementById("overlay");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        menuToggle.checked = false;
+      });
+    });
+
+    overlay.addEventListener("click", () => {
+      menuToggle.checked = false;
+    });
+  </script>
+</body>
+</html>
