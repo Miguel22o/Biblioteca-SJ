@@ -149,6 +149,21 @@
       pointer-events: auto;
     }
 
+    /* Agregar estilo para las fotos */
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; /* Asegura que las imágenes ocupen el ancho completo */
+      max-width: 100%;
+    }
+
+    .image-container img {
+      width: 48%; /* Esto asegura que las imágenes sean más pequeñas */
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px; /* Si deseas bordes redondeados */
+    }
+
     @media (max-width: 400px) {
       .side-panel {
         width: 70vw;
@@ -156,6 +171,10 @@
       .navbar-center-text {
         width: auto;
         font-size: 1.2rem;
+      }
+
+      .image-container img {
+        width: 100%; /* En pantallas más pequeñas, las imágenes ocuparán todo el ancho */
       }
     }
   </style>
@@ -182,11 +201,9 @@
 
   <div class="side-panel">
     <div class="menu-buttons">
-
       <a href="Catalogo-biblioteca.html">
-      <button class="close-menu">Pedir Libro Prestado </button>
-    </a>
-    
+        <button class="close-menu">Pedir Libro Prestado </button>
+      </a>
       <button class="close-menu">Devolver Libro </button>
     </div>
     <div class="bottom-button">
@@ -196,10 +213,12 @@
 
   <div class="overlay" id="overlay"></div>
 
-  <img src="foto1.jpeg">
-  <img src="foto2.jpeg">
-  
-  
+  <!-- Contenedor de imágenes -->
+  <div class="image-container">
+    <img src="foto1.jpeg" alt="Foto 1">
+    <img src="foto2.jpeg" alt="Foto 2">
+  </div>
+
   <script>
     const menuToggle = document.getElementById("menu-toggle");
     const buttons = document.querySelectorAll(".close-menu");
