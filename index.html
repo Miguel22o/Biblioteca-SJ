@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-     background: url("foto3.jpeg") no-repeat center center fixed;
+      background: url("Foto3.jpeg") no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -128,8 +128,13 @@
       color: #8a0303;
     }
 
+    /* Texto en lugar del botón de Términos */
     .bottom-button {
       margin-top: auto;
+      color: white;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
 
     .overlay {
@@ -183,29 +188,24 @@
 
   <div class="side-panel">
     <div class="menu-buttons">
-
       <a href="Catalogo-biblioteca.html">
-      <button class="close-menu">Pedir Libro Prestado </button>
-    </a>
-    
-      <button class="close-menu">Devolver Libro </button>
+        <button class="close-menu">Pedir Libro Prestado</button>
+      </a>
+      <button class="close-menu">Devolver Libro</button>
     </div>
-  <div class="bottom-button" style="color: white; text-align: center; font-size: 0.95rem; line-height: 1.4;">
-  <p><strong>Horario de atención</strong><br>
-    Lunes a Viernes: 7:00 a.m. – 5:00 p.m.</p>
-  <p><strong>Recordatorio</strong><br>
-    Por favor, cuida y conserva en buen estado los materiales de la biblioteca.<br>
-  <em>“Un libro bien cuidado es un puente que podrá servir a muchos más lectores en el futuro.”</em></p>
+
+    <div class="bottom-button">
+      <p><strong>Horario de atención</strong><br>
+      Lunes a Viernes: 7:00 a.m. – 5:00 p.m.</p>
+
+      <p><strong>Recordatorio</strong><br>
+      Por favor, cuida y conserva en buen estado los materiales de la biblioteca.<br>
+      <em>“Un libro bien cuidado es un puente que podrá servir a muchos más lectores en el futuro.”</em></p>
+    </div>
   </div>
-</div>
-    
 
   <div class="overlay" id="overlay"></div>
 
-  <img src="foto1.jpeg">
-  <img src="foto2.jpeg">
-  
-  
   <script>
     const menuToggle = document.getElementById("menu-toggle");
     const buttons = document.querySelectorAll(".close-menu");
@@ -223,5 +223,3 @@
   </script>
 </body>
 </html>
-
-
